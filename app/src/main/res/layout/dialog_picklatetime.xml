@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_rectangle"
+    android:padding="@dimen/dp_30">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:padding="@dimen/dp_8"
+        android:text="Когда вы планируете оказаться у клиента?"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/late_30m"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Опаздываю, буду через 30 минут"
+        app:backgroundTint="@color/colorPrimary"
+        app:strokeColor="@color/colorPrimaryDark"
+        app:strokeWidth="@dimen/dp_2"
+        android:layout_marginTop="@dimen/dp_10"
+        android:padding="@dimen/dp_20"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/late_1h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Опаздываю, буду через час"
+        app:backgroundTint="@color/colorPrimary"
+        app:strokeColor="@color/colorPrimaryDark"
+        app:strokeWidth="@dimen/dp_2"
+        android:padding="@dimen/dp_20"
+        app:layout_constraintTop_toBottomOf="@id/late_30m"
+        android:layout_marginTop="@dimen/dp_10" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/late_2h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Опаздываю, буду через 2 часа"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/late_1h"
+        app:strokeColor="@color/colorPrimaryDark"
+        app:strokeWidth="@dimen/dp_2"
+        android:padding="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/late_3h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Опаздываю, буду через 3 часа"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/late_2h"
+        app:strokeColor="@color/colorPrimaryDark"
+        app:strokeWidth="@dimen/dp_2"
+        android:padding="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10" />
+</androidx.constraintlayout.widget.ConstraintLayout>

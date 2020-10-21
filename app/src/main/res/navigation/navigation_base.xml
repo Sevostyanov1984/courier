@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_base"
+    app:startDestination="@id/tasklistFragment">
+
+    <fragment
+        android:id="@+id/tasklistFragment"
+        android:name="com.cdek.courier.ui.base.tasklist.TaskListFragment"
+        android:label="fragment_tasks"
+        tools:layout="@layout/fragment_tasklist">
+        <action
+            android:id="@+id/action_tasksFragment_to_taskItem"
+            app:destination="@id/taskItem"
+            app:enterAnim="@anim/show_from_bottom"
+            app:exitAnim="@anim/hide_to_bottom" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskItem"
+        android:name="com.cdek.courier.ui.base.task.TaskFragment"
+        android:label="TaskItem">
+        <action
+            android:id="@+id/action_taskItem_to_standardRobocallFragment"
+            app:destination="@id/standardRobocallFragment"
+            app:enterAnim="@anim/show_from_bottom"
+            app:exitAnim="@anim/hide_to_bottom" />
+        <action
+            android:id="@+id/action_taskItem_to_galleryFragment"
+            app:destination="@id/galleryFragment"></action>
+        <action
+            android:id="@+id/action_taskItem_to_partialFragment"
+            app:destination="@id/partialFragment"></action>
+        <argument
+            android:name="taskNumber"
+            app:argType="string"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_taskItem_to_yandexMap"
+            app:destination="@id/yandexMap" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.cdek.courier.ui.base.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification">
+        <action
+            android:id="@+id/action_notificationFragment_to_taskItem"
+            app:destination="@+id/taskItem" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/standardRobocallFragment"
+        android:name="com.cdek.courier.ui.base.task.robocall.StandartRobocallFragment"
+        android:label="StandartRobocallFragment" />
+
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.cdek.courier.ui.base.gallery.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery">
+        <argument
+            android:name="taskNumber"
+            app:argType="string"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/partialFragment"
+        android:name="com.cdek.courier.ui.base.partial.PartialFragment"
+        android:label="fragment_partial"
+        tools:layout="@layout/fragment_partial">
+        <argument
+            android:name="taskNumber"
+            app:argType="string"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/yandexMap"
+        android:name="com.cdek.courier.ui.base.map.YandexMapFragment"
+        android:label="YandexMap" />
+
+    <fragment
+        android:id="@+id/nav_calc"
+        android:name="com.cdek.courier.ui.base.calc.CalcFragment"
+        android:label="fragment_calc"
+        tools:layout="@layout/fragment_calc" />
+    <activity
+        android:id="@+id/nav_search"
+        android:name="com.cdek.courier.ui.start.StartActivity"
+        android:label="activity_start"
+        tools:layout="@layout/activity_start" />
+
+
+</navigation>

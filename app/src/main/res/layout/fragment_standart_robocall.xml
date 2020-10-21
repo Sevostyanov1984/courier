@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/dp_10"
+    app:strokeColor="@color/colorPrimary"
+    app:cardCornerRadius="@dimen/dp_10"
+    android:padding="@dimen/dp_10"
+    app:strokeWidth="@dimen/dp_2"
+    app:cardUseCompatPadding="false"
+    android:layout_margin="@dimen/dp_20">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Подтвердите создание робозвонка"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:padding="@dimen/dp_8"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:background="@color/colorBlack"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/sender_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Адрес получателя: ул. Аскизская, д. 164 кв. 105, г. АБК"
+            android:textSize="16sp"
+            android:padding="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/divider_title" />
+
+        <View
+            android:id="@+id/divider_sender_address"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:background="@color/colorBlack"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/sender_address" />
+
+        <TextView
+            android:id="@+id/sender_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ФИО получателя: Голдышева Валентина Александровна"
+            android:textSize="16sp"
+            android:padding="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/divider_sender_address" />
+
+        <View
+            android:id="@+id/divider_sender_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:background="@color/colorBlack"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/sender_name" />
+
+        <TextView
+            android:id="@+id/sender_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Телефон получателя: 89134479601"
+            android:textSize="16sp"
+            android:padding="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/divider_sender_name" />
+
+        <View
+            android:id="@+id/divider_sender_phone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:background="@color/colorBlack"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/sender_phone" />
+
+        <TextView
+            android:id="@+id/courier_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ваш телефон: 89134479601"
+            android:textSize="16sp"
+            android:padding="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/divider_sender_phone" />
+
+        <View
+            android:id="@+id/divider_courier_phone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:background="@color/colorBlack"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/courier_phone" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сообщение: Опаздываю, буду через час"
+            android:textSize="16sp"
+            android:padding="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/divider_courier_phone" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/btn_create"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/message"
+            android:text="Отмена"
+            android:layout_margin="@dimen/dp_8" />
+
+        <Button
+            android:id="@+id/btn_create"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Создать"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/btn_cancel"
+            app:layout_constraintTop_toBottomOf="@id/message"
+            android:layout_margin="@dimen/dp_8" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

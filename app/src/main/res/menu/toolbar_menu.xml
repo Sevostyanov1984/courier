@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/ic_group"
+        android:icon="@drawable/actionbar_group_icon"
+        app:showAsAction="always"
+        android:title="@string/nav_notification" />
+</menu>

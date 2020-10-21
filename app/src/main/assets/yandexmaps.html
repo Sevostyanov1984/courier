@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Быстрый старт. Размещение интерактивной карты на странице</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=43631a95-25a5-48a0-b8c7-267fd014a1bc&lang=ru_RU"
+            type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    ymaps.ready(init);
+
+    function init() {
+    Android.log('geocoding request started');
+            var req = Android.getSearchQuery();
+            Android.log('geocoding request: ' + req);
+    ymaps.geocode(req, {
+        results: 1
+    }).then(function (res) {
+            var firstGeoObject = res.geoObjects.get(0),
+                coords = firstGeoObject.geometry.getCoordinates(),
+                bounds = firstGeoObject.properties.get('boundedBy');
+
+                myMap = new ymaps.Map("map", {
+                		center: coords,
+                		zoom: 15
+            		});
+
+            firstGeoObject.options.set('preset', 'islands#darkBlueDotIconWithCaption');
+            // Получаем строку с адресом и выводим в иконке геообъекта.
+            firstGeoObject.properties.set('iconCaption', firstGeoObject.getAddressLine());
+
+            // Добавляем первый найденный геообъект на карту.
+            myMap.geoObjects.add(firstGeoObject);
+            // Масштабируем карту на область видимости геообъекта.
+            myMap.setBounds(bounds, {
+                // Проверяем наличие тайлов на данном масштабе.
+                checkZoomRange: true
+            });
+        },
+        function (err) {
+        			alert('ошибка: ' + err);
+    			});
+
+
+
+    }
+
+    </script>
+    <style type="text/css">
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="map"></div>
+</body>
+
+</html>

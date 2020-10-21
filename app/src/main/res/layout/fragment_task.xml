@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cdek.courier.ui.base.task.TaskViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGray"
+            android:orientation="vertical"
+            android:padding="5dp">
+            <!---->
+            <include
+                layout="@layout/task_cardview_info"
+                app:viewModel="@{viewModel}" />
+
+            <!--проблемы-->
+
+            <include
+                layout="@layout/task_cardview_problems"
+                app:viewModel="@{viewModel}" />
+
+            <!--Получатель-->
+            <include
+                layout="@layout/task_cardview_receiver"
+                app:viewModel="@{viewModel}" />
+
+            <!--Грузоместа-->
+            <include
+                layout="@layout/task_cardview_cargoplace"
+                app:viewModel="@{viewModel}" />
+
+            <!--Робозвонок-->
+            <include
+                layout="@layout/task_cardview_robocall"
+                app:viewModel="@{viewModel}" />
+
+            <!--Оплата-->
+            <include
+                layout="@layout/task_cardview_payment"
+                app:viewModel="@{viewModel}" />
+
+            <!--Доп фото-->
+            <include
+                layout="@layout/task_cardview_addphoto"
+                app:viewModel="@{viewModel}" />
+            <!--Получатель-->
+
+            <include
+                layout="@layout/task_cardview_alternateive_receiver"
+                app:viewModel="@{viewModel}" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_change_status_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{() -> viewModel.updateLoading()}"
+                android:paddingLeft="30dp"
+                android:paddingTop="20dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="20dp"
+                android:text="Я прочитал" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

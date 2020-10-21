@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="task"
+            type="com.cdek.courier.data.models.entities.task.Task" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="4dp"
+        android:layout_margin="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_8">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_animation_list_urgent_delivery"
+                android:padding="@dimen/dp_8"
+                android:src="@drawable/icon_account_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/icon_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:src="@drawable/icon_circle"
+                app:layout_constraintEnd_toEndOf="@+id/iv"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="@{(task.notification == 1 || task.notification == null) ? view.GONE : view.VISIBLE}" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <TextView
+                android:id="@+id/tv_street_task_adaprter_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@{task.receiverAddress.targetAddress}"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dp_8"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toEndOf="@id/iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_name_task_adaprter_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:text="@{task.receiverContactFace}"
+                android:textSize="12dp"
+                android:layout_marginLeft="@dimen/dp_8"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tv_street_task_adaprter_item"
+                app:layout_constraintStart_toEndOf="@id/iv"
+                android:padding="2dp" />
+
+            <TextView
+                android:id="@+id/tv_type_task_adaprter_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:padding="2dp"
+                android:text="@{task.tariffName}"
+                android:textColor="@color/colorBlack"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_sumtopay_task_adaprter_item"
+                app:layout_constraintStart_toEndOf="@id/iv"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_task_adaprter_item" />
+
+            <TextView
+                android:id="@+id/tv_time_task_adaprter_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@{task.timeMin + `-` + task.timeMax}"
+                android:textColor="@color/colorBlack"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guideline2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_lunch"
+                android:padding="2dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_lunch_task_adaprter_item"
+                app:layout_constraintTop_toBottomOf="@+id/tv_time_task_adaprter_item" />
+
+            <TextView
+                android:id="@+id/tv_lunch_task_adaprter_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@{task.lunchTimeFrom + `-` + task.lunchTimeTo}"
+                android:textColor="@color/colorBlack"
+                android:textSize="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_lunch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_lunch" />
+
+            <TextView
+                android:id="@+id/tv_basenumber_task_adaprter_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{task.basisNumber}"
+                android:textColor="@color/colorBlack"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_type_task_adaprter_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_type_task_adaprter_item" />
+
+            <TextView
+                android:id="@+id/tv_sumtopay_task_adaprter_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1200 р."
+                android:padding="2dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_type_task_adaprter_item"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="@+id/tv_type_task_adaprter_item" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toEndOf="@id/iv"
+                app:layout_constraintTop_toBottomOf="@id/tv_basenumber_task_adaprter_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:background="@color/colorDarkGray" />
+
+            <ImageView
+                android:id="@+id/icon_urgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_task_flash"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginStart="@dimen/dp_100"
+                android:visibility="@{task.urgency ? view.VISIBLE : view.GONE}" />
+
+            <ImageView
+                android:id="@+id/icon_problem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_task_problem"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                app:layout_constraintEnd_toStartOf="@id/icon_urgent"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_4" />
+
+            <ImageView
+                android:id="@+id/icon_noproblem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_task_no_problem"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                app:layout_constraintEnd_toStartOf="@id/icon_problem"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_4" />
+
+            <ImageView
+                android:id="@+id/icon_document"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_task_document"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                app:layout_constraintEnd_toStartOf="@id/icon_noproblem"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_4"
+                android:visibility="@{task.needAttorney ? view.VISIBLE : view.GONE}" />
+
+            <ImageView
+                android:id="@+id/icon_headset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_task_headset"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                app:layout_constraintEnd_toStartOf="@id/icon_document"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_4" />
+
+            <ImageView
+                android:id="@+id/icon_signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_task_signature"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                app:layout_constraintEnd_toStartOf="@id/icon_headset"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_4"
+                android:visibility="@{task.enableElectronicSignature ? view.VISIBLE : view.GONE}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

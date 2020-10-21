@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cdek.courier.ui.base.task.TaskViewModel" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_8">
+
+            <ImageView
+                android:id="@+id/iv_receiver_icon_receiver"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/background_shape_oval_delivery"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/icon_account_left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_receiver_name_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.task.receiver}"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:layout_margin="@dimen/dp_8"
+                app:layout_constraintEnd_toStartOf="@+id/ib_dial_task"
+                app:layout_constraintStart_toEndOf="@+id/iv_receiver_icon_receiver"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_receiver_phone_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.task.receiverPhones.get(0).number}"
+                android:textSize="12sp"
+                android:layout_marginTop="@dimen/dp_4"
+                app:layout_constraintEnd_toEndOf="@+id/tv_receiver_name_task"
+                app:layout_constraintStart_toStartOf="@+id/tv_receiver_name_task"
+                app:layout_constraintTop_toBottomOf="@+id/tv_receiver_name_task" />
+
+            <TextView
+                android:id="@+id/tv_receiver_address_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.task.receiverAddress.targetAddress}"
+                android:textSize="12sp"
+                android:layout_marginTop="@dimen/dp_4"
+                app:layout_constraintEnd_toEndOf="@+id/tv_receiver_name_task"
+                app:layout_constraintStart_toStartOf="@+id/tv_receiver_name_task"
+                app:layout_constraintTop_toBottomOf="@id/tv_receiver_phone_task" />
+
+            <TextView
+                android:id="@+id/tv_receiver_time_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{viewModel.task.timeMin + `-` + viewModel.task.timeMax}"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/dp_4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_receiver_name_task"
+                app:layout_constraintStart_toStartOf="@+id/tv_receiver_name_task"
+                app:layout_constraintTop_toBottomOf="@id/tv_receiver_address_task" />
+
+            <ImageView
+                android:id="@+id/iv_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:src="@drawable/icon_lunch"
+                app:layout_constraintEnd_toStartOf="@+id/tv_lunch_task_adaprter_item"
+                app:layout_constraintTop_toBottomOf="@id/tv_receiver_time_task"
+                android:visibility="@{viewModel.task.get().lunchTimeFrom.equals(`00:00`) || viewModel.task.get().lunchTimeTo.equals(`00:00`) ? view.GONE: view.VISIBLE}" />
+
+            <TextView
+                android:id="@+id/tv_lunch_task_adaprter_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@{viewModel.task.lunchTimeFrom + `-` + viewModel.task.lunchTimeTo}"
+                android:textColor="@color/colorBlack"
+                android:textSize="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_lunch"
+                app:layout_constraintEnd_toEndOf="@id/tv_receiver_time_task"
+                app:layout_constraintStart_toStartOf="@id/tv_receiver_time_task"
+                app:layout_constraintTop_toTopOf="@id/iv_lunch"
+                android:visibility="@{viewModel.task.get().lunchTimeFrom.equals(`00:00`) || viewModel.task.get().lunchTimeTo.equals(`00:00`) ? view.GONE: view.VISIBLE}" />
+
+            <ImageButton
+                android:id="@+id/ib_dial_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_phone"
+                android:backgroundTint="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/ib_map_task" />
+
+            <ImageButton
+                android:id="@+id/ib_map_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_map"
+                android:backgroundTint="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ib_dial_task"
+                app:layout_constraintStart_toStartOf="@+id/ib_dial_task"
+                app:layout_constraintTop_toBottomOf="@id/ib_dial_task" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

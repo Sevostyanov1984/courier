@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">CdekCourier</string>
+    <string name="mustBeAllowed">Необходимо в настройках приложения разрешить доступ к камере и хранилищу</string>
+    <string name="input_pass">укажите пароль</string>
+    <string name="input_login">укажите ФИО</string>
+    <string name="select_server">Сервер:</string>
+    <string name="nav_tasks">Список заданий</string>
+    <string name="nav_calc">Калькулятор</string>
+    <string name="nav_settings">Настройки</string>
+    <string name="nav_notification">Оповещения</string>
+    <string name="nav_news">Новости</string>
+    <string name="nav_search">Поиск по ШК</string>
+    <string name="nav_tutorial">Обучение</string>
+    <string name="task_search_hint">поиск…</string>
+    <string name="need_allow_access">Это разрешение обязательно</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ru">RU</string>
+    <string name="enter">Войти</string>
+
+    <string name="include_cost">Стоимость товаров: %s</string>
+    <string name="part_delivery">Частичная доставка %s</string>
+
+    <string name="action_share">Share</string>
+    <string name="action_upload">Upload</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_print">Print</string>
+
+    <string name="signature">Подпись</string>
+    <string name="order_number">Номер заказа СДЭК: %s</string>
+    <string name="im_number">Номер заказа ИМ: %s</string>
+    <string name="receiver_">Получатель: %s</string>
+    <string name="receiver_address">Адрес получателя: %s</string>
+    <string name="cargo_info">Информация о заказе: %s</string>
+    <string name="amount">Мест: %s</string>
+    <string name="weight_">Вес: %s кг</string>
+    <string name="time">%s-%s</string>
+    <string name="sum">Сумма к оплате: %s руб</string>
+    <string name="state_delivery_1">Заказ доставлен %s, упаковка не повреждена, не нарушена. Претензий не имею.</string>
+    <string name="state_delivery_2">Отказ по причине: %s</string>
+    <string name="date">Дата вручения: %s</string>
+    <string name="received_">Получил: %s</string>
+    <string name="agree">Настоящим получатель дает согласие на получение кассового чека в электронной форме путем его предоставления на абонентский номер/эл.почтовый ящик</string>
+    <string name="unknown">неизвестно</string>
+    <string name="nav_exit">Выход</string>
+</resources>

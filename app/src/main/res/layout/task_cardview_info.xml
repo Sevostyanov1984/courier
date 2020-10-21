@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cdek.courier.ui.base.task.TaskViewModel" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_8">
+
+            <ImageView
+                android:id="@+id/iv_receiver_icon_info"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/background_shape_oval_delivery"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/icon_info"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_number_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_8"
+                android:text="@{@string/order_number(viewModel.task.basisNumber)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_receiver_icon_info"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_im_number_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@{@string/im_number(viewModel.task.numberIm)}"
+                app:layout_constraintEnd_toEndOf="@+id/tv_number_task"
+                app:layout_constraintStart_toStartOf="@+id/tv_number_task"
+                app:layout_constraintTop_toBottomOf="@id/tv_number_task" />
+
+            <ListView
+                android:id="@+id/lv_icons_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                app:layout_constraintStart_toStartOf="@+id/tv_number_task"
+                app:layout_constraintTop_toBottomOf="@id/tv_im_number_task" />
+
+            <TextView
+                android:id="@+id/tv_note_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:maxLines="1"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@{viewModel.notes}"
+                android:visibility="@{viewModel.notes.get().equals(``) ? view.GONE: view.VISIBLE}"
+                app:layout_constraintEnd_toStartOf="@+id/dots"
+                app:layout_constraintStart_toStartOf="@+id/tv_number_task"
+                app:layout_constraintTop_toBottomOf="@id/lv_icons_task" />
+
+            <TextView
+                android:id="@+id/dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:paddingRight="@dimen/dp_8"
+                android:visibility="@{viewModel.notes.get().equals(``) ? view.GONE: view.VISIBLE}"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_note_task"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_expandnote_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/icon_chevron_down"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_note_task"
+                android:visibility="@{viewModel.notes.get().equals(``) ? view.GONE: view.VISIBLE}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

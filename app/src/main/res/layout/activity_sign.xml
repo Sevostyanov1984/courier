@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.cdek.courier.ui.photo.sign.SignViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context="com.cdek.courier.ui.photo.sign.SignActivity">
+
+        <LinearLayout
+            android:id="@+id/ll_order_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5">
+
+            <TextView
+                android:id="@+id/tv_order_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{@string/order_number(viewModel.task.basisNumber)}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_im_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/im_number(viewModel.task.numberIm)}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_receiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/receiver_(viewModel.task.receiverContactFace)}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_receiver_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/receiver_address(viewModel.task.receiverAddress)}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_cargo_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@{@string/cargo_info(viewModel.packageInfo.description)}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/amount(Integer.toString(viewModel.packageInfo.placesCount))}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/weight_(Double.toString(viewModel.packageInfo.totalWeight))}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_sum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/sum"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_delivery_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_order_info">
+
+            <TextView
+                android:id="@+id/tv_state_delivery_handed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/state_delivery_1(viewModel.stateDelivery)}"
+                android:visibility="@{viewModel.isHanded.get() ? view.VISIBLE : view.GONE}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_state_delivery_not_handed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/state_delivery_2(viewModel.stateDelivery)}"
+                android:visibility="@{viewModel.isHanded.get() ? view.GONE : view.VISIBLE}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/date(viewModel.taskOperation.date)}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_received_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{@string/received_(viewModel.taskOperation.received)}"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_12" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_signature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:layout_margin="@dimen/dp_20"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/iv_signature"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_margin="@dimen/dp_2"
+                android:contentDescription="@string/signature" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_agree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.5"
+            android:visibility="invisible"
+            android:text="@string/agree"
+            android:textSize="@dimen/sp_12"
+            android:paddingStart="@dimen/dp_20"
+            android:paddingEnd="@dimen/dp_10"
+            app:layout_constraintBottom_toTopOf="@+id/ll_delivery_state"
+            app:layout_constraintStart_toEndOf="@+id/ll_order_info" />
+
+        <com.cdek.courier.view.PaintView
+            android:id="@+id/viewPaint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_back"
+            android:alpha="0.25" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:onClick="@{() -> viewModel.clear()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_delete_outline" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:onClick="@{() -> viewModel.onAcceptSign()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_done" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

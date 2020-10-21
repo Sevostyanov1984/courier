@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="server_list">
+        <item>prod</item>
+        <item>preprod</item>
+        <item>qa</item>
+        <item>qa2</item>
+        <item>dev</item>
+        <item>dev2</item>
+        <item>dev_local</item>
+    </array>
+</resources>

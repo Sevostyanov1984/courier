@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv_robocall"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8">
+
+        <ImageView
+            android:id="@+id/iv_receiver_icon_robocall"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/background_shape_oval_delivery"
+            android:padding="@dimen/dp_10"
+            android:src="@drawable/icon_headset"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8"
+            android:layout_toRightOf="@id/iv_receiver_icon_robocall"
+            android:text="робозвонки"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_receiver_icon_robocall"
+            app:layout_constraintStart_toEndOf="@+id/iv_receiver_icon_robocall"
+            app:layout_constraintTop_toTopOf="@+id/iv_receiver_icon_robocall" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lv_robocall_list_task"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/iv_receiver_icon_robocall"
+            app:layout_constraintEnd_toStartOf="@id/ib_add_robocall"
+            app:layout_constraintTop_toBottomOf="@id/iv_receiver_icon_robocall"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/ib_add_robocall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_plus"
+            android:backgroundTint="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_expandrobocall_task"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:padding="@dimen/dp_5"
+            android:src="@drawable/icon_chevron_down"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lv_robocall_list_task" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

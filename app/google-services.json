@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "810932478837",
+    "firebase_url": "https://cdekcourier-fe643.firebaseio.com",
+    "project_id": "cdekcourier-fe643",
+    "storage_bucket": "cdekcourier-fe643.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810932478837:android:0aa408ef9e5de12d8ee93c",
+        "android_client_info": {
+          "package_name": "com.cdek.courier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810932478837-j8fmsbo3g3r4qdb5v64ru6iblcnbsk8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6mQnnwLVblJrCUo8O9jOP5M-OFiRcuo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810932478837-j8fmsbo3g3r4qdb5v64ru6iblcnbsk8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810932478837:android:3c369fec45ffc304",
+        "android_client_info": {
+          "package_name": "com.hc.cdek.courier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810932478837-j8fmsbo3g3r4qdb5v64ru6iblcnbsk8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6mQnnwLVblJrCUo8O9jOP5M-OFiRcuo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810932478837-j8fmsbo3g3r4qdb5v64ru6iblcnbsk8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
